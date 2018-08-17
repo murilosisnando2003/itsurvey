@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from .models import DadosEmpresa
+from .models import Empresa,Question,Cargo
 from .form import AddForm
 # Create your views here.
 
 
 def consulta_dados(request):
 	data = {}
-	data['dados'] = DadosEmpresa.objects.all()
+	data['dados'] = Empresa.objects.all()
 	return render (request,'app/home.html', data )
 
 
@@ -17,8 +17,8 @@ def questao(request):
 
 
 def add_empresa (request):
-	data = {}
-	form = AddForm()
-	data['form'] = form
-	return render(request,'app/form.html',data)
+	# data = {}
+	# form = AddForm()
+	empresas = Empresa.objects.all()
+	return render(request,'app/form.html', {'empresas': empresas})
 

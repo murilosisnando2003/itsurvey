@@ -8,13 +8,13 @@ class Cargo(models.Model):
 		return self.nome_cargo
 
 
-class DadosEmpresa (models.Model):
+class Empresa (models.Model):
 	nome_empresa = models.CharField(max_length=100, blank=True)
 	name = models.CharField(max_length=100)
 	email = models.EmailField(max_length=70)
 	cargo = models.ForeignKey(Cargo,on_delete=models.CASCADE)
 	def __str__(self):
-		return self.name
+		return self.nome_empresa
 
 
 

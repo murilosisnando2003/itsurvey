@@ -1,23 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Welcome</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-<form action="">
-	{% csrf_token %}
+{% block title %} Empresas {% endblock %}
 
-	{{form}}
+{% block content %}
 
-	
+{% comment %} <a href="{% url 'fornecedor_new' %}" class="btn btn-primary"> Novo cliente</a> {% endcomment %}
+{% if empresas %}
+<table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Nome Empresa</th>
+            <th>Contato</th>
+            <th>Email</th>
+            <th>Cargo</th>
+            {% comment %} <th>Ação</th> {% endcomment %}
+
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for empresa in empresas %}
+
+            <tr>
+                <th>{{ empresa.pk }}</th>
+                {% comment %} <td><a href="{% url 'fornecedor_update' fornecedor.id %}">{{ fornecedor.name }}</a></td> {% endcomment %}
+				<td>{{ empresa.nome_empresa }}</td>
+				<td>{{ empresa.name }}</td>
+				<td>{{ empresa.email }}</td>
+				<td>{{ empresa.cargo }}</td>
+
+               
+                {% comment %} <td><a href="{% url 'fornecedor_delete' fornecedor.id %}" class="trash-item"><i class="fa fa-trash" aria-hidden="true"></i></a></td> {% endcomment %}
+                <td>
+                   
+                </td>
+
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
 
 
+{% else %}
 
-</form>
+    <h3>Sem registros...</h3>
 
-	
-</body>
-</html>
+{% endif %}
 
+
+{% endblock content %}

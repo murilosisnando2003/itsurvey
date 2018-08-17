@@ -1,7 +1,10 @@
-from django.forms import ModelForm
-from .models import DadosEmpresa
+from django import forms
+from .models import Empresa
 
-class AddForm(ModelForm):
+class AddForm(forms.ModelForm):
 	class meta:
-		model= DadosEmpresa
-		fields = ['nome_empresa','name','email','cargo']
+		model= Empresa
+		fields = ('nome_empresa','name','email','cargo')
+
+
+
