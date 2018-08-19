@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.timezone import now
 
 # Create your models here.
 
@@ -19,10 +20,29 @@ class Empresa (models.Model):
 
 
 class Question(models.Model):
+	# empresa = models.OneToOneField(
+    # Empresa,
+    # on_delete=models.CASCADE,
+    # verbose_name="related empresa",)
+	empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
 	questao = models.CharField(max_length= 500)
 	resposta = models.TextField()
+	data_resposta = models.DateField(default=now, blank=True)
 	def __str__(self):
 		return self.questao
+
+# class Answer(models.Model):
+# 	question = models.ForeignKey(Question,on_delete=models.CASCADE)
+# 	empresa = models.ForeignKey(Empresa,on_delete=models.CASCADE)
+# 	resposta = models.TextField()
+# 	data_resposta = models.DateField(default=now, blank=True)
+# 	def __str__(self):
+# 		return self.resposta		
+
+
+
+
+
 
 
 
