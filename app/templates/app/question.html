@@ -1,25 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Questions</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block scripts %}
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#id_escolher_empresa').change(function(){
+    if($('#id_escolher_empresa').val()){
+      window.location.href='{% url 'escolherempresa' %}/'+$('#id_escolher_empresa').val();
+    }else{
+      window.location.href='{% url 'escolherempresa' %}';
+    }
+  });
+});
+</script>
+{% endblock %}
 
-	
-<ul>
-
-
-
-{% if questao %}
-	<li>{{questao.questao}}</li>
-	<li>{{questao.resposta}}</li>
+{% block content %}
+{% if message%}
+	Dados salvos com sucesso!
+{% else %}
+	<form method="POST" action="">
+	{{form.errors}}
+		{% csrf_token %}
+	{{formset_questao.management_form}}	
+	{% for form in formset_questao %}
+		
+		{{form.id}}
+		<h2>{{forloop.counter}}-{{form.instance.questao}}</h2>
+		{{form.resposta}}
+	{% endfor %}
+	<input type="submit" value="Salvar">
+	</form>
 {% endif %}
+{% endblock %}
 
-</ul>
-
-
-
-	
-</body>
-</html>

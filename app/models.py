@@ -26,8 +26,8 @@ class Question(models.Model):
     # verbose_name="related empresa",)
 	empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
 	questao = models.CharField(max_length= 500)
-	resposta = models.TextField()
-	data_resposta = models.DateField(default=now, blank=True)
+	resposta = models.TextField(blank=True)
+	data_resposta = models.DateField(auto_now=True,blank=True)
 	def __str__(self):
 		return self.questao
 
