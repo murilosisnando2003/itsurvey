@@ -2,9 +2,12 @@ from django import forms
 from .models import Empresa
 
 class AddForm(forms.ModelForm):
-	class meta:
+	class Meta:
 		model= Empresa
-		fields = ('nome_empresa','name','email','cargo')
+		fields = ('name','email','cargo')
+	escolher_empresa = forms.ModelChoiceField(Empresa.objects.all())	
+
+
 
 
 
