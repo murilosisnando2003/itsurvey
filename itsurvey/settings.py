@@ -120,3 +120,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+EMAIL_HOST = 'smtp.sendgrid.com'
+EMAIL_HOST_USER = 'intereng'
+EMAIL_FROM = 'EDGE<info@edgeglobalsupply.com.br>'
+EMAIL_HOST_PASSWORD = 'rlc0905'
+SERVER_EMAIL='info@edgeglobalsupply.com.br'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = False

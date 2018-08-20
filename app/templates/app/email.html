@@ -1,0 +1,7 @@
+{{empresa.nome_empresa}}
+
+{%for q in empresa.question_set.all%}
+
+    {{q.questao}}
+    {{q.resposta}} <br/>
+{%endfor%}
