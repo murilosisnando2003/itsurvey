@@ -25,7 +25,7 @@ SECRET_KEY = 'xqo_h*a0_hvb$3uw$+86c33k5th5&+d=+wnisgk#59qfrd4b3%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['54.70.54.25','.itsurvey.edgeglobalsupply.com.br']
 
 
 # Application definition
