@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block scripts %}
+<script type="text/javascript">
+$(document).ready(function(){
+  $('select, input[type="text"], input[type="email"]' ).addClass('form-control');
+
+});
+</script>
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<form  method="POST" action="">
+    {{form.errors}}
+    {% csrf_token %}
+
+
+    <div class="form-group">
+      <label for="disabledTextInput" class="ft-size">User</label>
+      <br>{{form.usuario}}
+    </div>
+     
+    <div class="form-group" >
+      <label type="email" for="disabledTextInput" class="ft-size" >Password</label>
+      {{form.senha}}
+    </div>
+     <input class="btn btn-primary" type="submit" value="Submit" >
+
+</form>
+
+{% endblock %}

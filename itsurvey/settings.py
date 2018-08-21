@@ -25,7 +25,7 @@ SECRET_KEY = 'xqo_h*a0_hvb$3uw$+86c33k5th5&+d=+wnisgk#59qfrd4b3%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['54.70.154.25','.itsurvey.edgeglobalsupply.com.br']
+ALLOWED_HOSTS = ['54.70.154.25','.itsurvey.edgeglobalsupply.com.br','127.0.0.1']
 
 
 # Application definition
@@ -100,11 +100,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL='/'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'pt-BR'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'America/Sao_Paulo'
 

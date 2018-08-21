@@ -15,7 +15,7 @@ $(document).ready(function(){
 
 {% block content %}
 {% if message%}
-	Dados salvos com sucesso!
+	<h3>Data saved successfully, information sent to your email!</h3>
 {% else %}
 	<form method="POST" action="">
 	{{form.errors}}

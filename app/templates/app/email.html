@@ -1,7 +1,61 @@
+
+
 {{empresa.nome_empresa}}
 
+
+
+{% block content %}
+
+<style>
+	
+.alert-primary {
+    color: white;
+    background-color: #114e9f;
+    border-color: black;
+
+    color:white;
+   
+    border-color: #b8daff;
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+ }
+
+ #assess{
+
+    font-size: 40px;
+    position: absolute;
+    left: 34%;
+    top: 30px;
+    color: #114e9f;
+ }
+
+
+
+</style>
+
+        <h1 id="assess" class="col-sm"> IT ASSESSEMENT </h1><br><br>
+
+
+
+
+<table>
 {%for q in empresa.question_set.all%}
 
-    {{q.questao}}
-    {{q.resposta}} <br/>
+
+    <h4 class="alert-heading">{{q.questao}}</h4>
+
+    <p>{{q.resposta}}</p>
+  <hr>
 {%endfor%}
+
+
+
+{% endblock content %}
+
+
+
+</table>
+

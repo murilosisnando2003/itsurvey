@@ -8,5 +8,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app.urls')),
     path('',RedirectView.as_view(pattern_name='escolherempresa'))
+    # path('',RedirectView.as_view(pattern_name='login'))
 
 ]
