@@ -20,15 +20,20 @@ $(document).ready(function(){
 	<form method="POST" action="">
 	{{form.errors}}
 		{% csrf_token %}
+
 	{{formset_questao.management_form}}	
 	{% for form in formset_questao %}
 		
 		{{form.id}}
+		<div class="space" ">
 		<h2>{{forloop.counter}}-{{form.instance.questao}}</h2>
 		{{form.resposta}}
+		</div>
 	{% endfor %}
-	<input type="submit" value="Salvar">
-	<input name="excel" type="submit" value="Salvar Excel">
+	<div class="formats">
+	<input class="btn" type="submit" value="SAVE">
+	<input id="excel" class="btn" name="excel" type="submit" value="SAVE EXCEL">
+	</div>
 	</form>
 {% endif %}
 {% endblock %}

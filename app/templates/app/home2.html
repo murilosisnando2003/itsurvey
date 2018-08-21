@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block scripts %}
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#id_escolher_empresa').change(function(){
+    if($('#id_escolher_empresa').val()){
+      window.location.href='{% url 'escolherempresa' %}/'+$('#id_escolher_empresa').val();
+    }else{
+      window.location.href='{% url 'escolherempresa' %}';
+    }
+  });
+});
+</script>
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<form method="POST" action="">
+    {{form.errors}}
+    {% csrf_token %}
+  <div class="form-group">
+      <label for="disabledSelect">Disabled select menu</label>
+      <select id="disabledSelect" class="form-control">
+        <option>Disabled select</option>
+      </select>
+   
+
+
+
+
+  <fieldset disabled>
+    <div class="form-group">
+      <label for="disabledTextInput">Disabled input</label>
+      <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+</form>
+
+{% endblock %}

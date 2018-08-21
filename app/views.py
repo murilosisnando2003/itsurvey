@@ -43,7 +43,7 @@ def questao(request,id=None):
 			template = get_template('app/email.html')
 			email_html = template.render({'empresa':empresa})
 			send_mail(
-				'IT EDGE - Assesment',
+				'IT EDGE - Assessment',
 				'cliente de email nao suporta html.',
 				'info@edgeglobalsupply.com.br',
 				['murilosisnando2003@hotmail.com'],
